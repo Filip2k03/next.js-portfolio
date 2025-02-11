@@ -115,18 +115,18 @@ header {
   gap: 2rem;
   position: fixed;
   top: 0;
-  left: -250px;
+  right: -250px; /* Changed to right */
   width: 250px;
   height: 100%;
   background-color: var(--background-color);
   padding: 2rem;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  transition: left 0.3s ease;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Changed shadow to left */
+  transition: right 0.3s ease; /* Changed transition to right */
   overflow-y: auto;
 }
 
 .sidebar.open {
-  left: 0;
+  right: 0; /* Changed to right */
 }
 
 .sidebar a {
