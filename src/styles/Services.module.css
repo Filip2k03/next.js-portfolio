@@ -1,0 +1,81 @@
+:global(:root) {
+  --primary-color: #007BA7;
+  --secondary-color: #ffffff;
+  --background-color-light: #f0f0f0;
+  --background-color-dark: #1a1a1a;
+  --text-color-light: #000000;
+  --text-color-dark: #ffffff;
+  --card-background-color-light: #ffffff;
+  --card-background-color-dark: #2a2a2a;
+}
+
+:global([data-theme='light']) {
+  --background-color: var(--background-color-light);
+  --text-color: var(--text-color-light);
+  --card-background-color: var(--card-background-color-light);
+}
+
+:global([data-theme='dark']) {
+  --background-color: var(--background-color-dark);
+  --text-color: var(--text-color-dark);
+  --card-background-color: var(--card-background-color-dark);
+}
+
+.services {
+  padding: 4rem 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+h1 span {
+  color: var(--primary-color);
+}
+
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.serviceCard {
+  background-color: var(--card-background-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.serviceCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.serviceCard h3 {
+  margin-top: 1rem;
+  font-size: 2rem;
+}
+
+.serviceCard p {
+  margin-top: 1rem;
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+.serviceCard img {
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+}
