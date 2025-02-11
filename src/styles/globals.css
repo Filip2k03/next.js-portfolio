@@ -189,6 +189,11 @@ span {
   font-weight: 700;
 }
 
+.home-img , img {
+  border: 1px solid black !important;
+  border-radius: 50%;
+}
+
 .home-content p {
   font-size: 1.6rem;
 }
@@ -316,3 +321,4 @@ span {
     font-size: 5rem;
   }
 }
+

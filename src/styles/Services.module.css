@@ -1,4 +1,4 @@
-:global(:root) {
+/* :global(:root) {
   --primary-color: #007BA7;
   --secondary-color: #ffffff;
   --background-color-light: #f0f0f0;
@@ -19,7 +19,7 @@
   --background-color: var(--background-color-dark);
   --text-color: var(--text-color-dark);
   --card-background-color: var(--card-background-color-dark);
-}
+} */
 
 .services {
   padding: 4rem 0;
@@ -32,7 +32,7 @@
   margin: 0 auto;
   padding: 0 2rem;
 }
-
+/* 
 h1 {
   text-align: center;
   font-size: 3rem;
@@ -41,7 +41,7 @@ h1 {
 
 h1 span {
   color: var(--primary-color);
-}
+} */
 
 .serviceGrid {
   display: grid;
