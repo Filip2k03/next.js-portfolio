@@ -99,6 +99,9 @@ header {
   font-size: 2rem;
   cursor: pointer;
   color: var(--text-color);
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
 }
 
 .menu-toggle {
