@@ -115,18 +115,18 @@ header {
   gap: 2rem;
   position: fixed;
   top: 0;
-  right: -250px; /* Changed to right */
+  right: -250px; /* Sidebar starts off-screen to the right */
   width: 250px;
   height: 100%;
   background-color: var(--background-color);
   padding: 2rem;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Changed shadow to left */
-  transition: right 0.3s ease; /* Changed transition to right */
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Shadow on the left side */
+  transition: right 0.3s ease; /* Smooth transition for the right property */
   overflow-y: auto;
 }
 
 .sidebar.open {
-  right: 0; /* Changed to right */
+  right: 0; /* Sidebar is fully visible */
 }
 
 .sidebar a {
