@@ -33,7 +33,7 @@ To run this project locally, follow these steps:
 
 1. Clone the repository:
    ```
-   git clone [<repository-url>](https://github.com/Filip2k03/next.js-portfolio.git)
+   git clone https://github.com/Filip2k03/next.js-portfolio.git
    ```
 
 2. Navigate to the project directory:
