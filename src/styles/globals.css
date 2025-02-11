@@ -94,7 +94,7 @@ header {
 }
 
 .theme-toggle {
-  background: none;
+  background: block;
   border: none;
   font-size: 2rem;
   cursor: pointer;
