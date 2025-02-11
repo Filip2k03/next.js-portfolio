@@ -12,12 +12,7 @@
     --primary-color-dark: #005bb5;
   }
   
-  body {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
+
 .contactSection {
     padding: 2rem;
     background-color: var(--background-color);
