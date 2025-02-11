@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { FaLinkedin, FaGithub, FaFacebook, FaInstagram } from 'react-icons/fa';
 
 export default function Home() {
   return (
@@ -13,7 +14,7 @@ export default function Home() {
       <Header />
       <section className="home">
         <div className="home-img">
-          <img src="/images/codecraft.jpg" alt="CodeCraft" />
+          <img src="/images/codecraft.jpg" alt="CodeCraft" className="rounded-img" />
         </div>
         <div className="home-content">
           <h1>Hi, It's <span>ThuYaKyaw</span></h1>
@@ -22,10 +23,10 @@ export default function Home() {
           <a href="./download/cv.pdf" className="btn" download="cv_of_thuyakyaw">Download CV</a>
           <a href="./skills" className="btn">Skills</a>
           <div className="social-icons">
-            <a href="https://www.linkedin.com/in/thu-ya-kyaw-5a606732b"><i className="fa-brands fa-linkedin"></i></a>
-            <a href="https://github.com/Filip2k03"><i className="fa-brands fa-github"></i></a>
-            <a href="#"><i className="fa-brands fa-facebook"></i></a>
-            <a href="#"><i className="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/thu-ya-kyaw-5a606732b"><FaLinkedin /></a>
+            <a href="https://github.com/Filip2k03"><FaGithub /></a>
+            <a href="#"><FaFacebook /></a>
+            <a href="#"><FaInstagram /></a>
           </div>
           <button id="contactButton" className="btn">Hire me</button>
         </div>

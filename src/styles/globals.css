@@ -96,18 +96,48 @@ header {
 .theme-toggle {
   background: none;
   border: none;
-  font-size: 1.6rem;
+  font-size: 2rem;
   cursor: pointer;
   color: var(--text-color);
 }
 
 .menu-toggle {
-  display: none;
   background: none;
   border: none;
   font-size: 2.4rem;
   cursor: pointer;
   color: var(--text-color);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: var(--background-color);
+  padding: 2rem;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s ease;
+  overflow-y: auto;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar a {
+  font-size: 1.6rem;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  color: var(--primary-color);
 }
 
 @media (max-width: 768px) {
@@ -130,6 +160,15 @@ header {
 
   .menu-toggle {
     display: block;
+  }
+
+  .sidebar {
+    width: 100%;
+    right: -100%;
+  }
+
+  .sidebar.open {
+    right: 0;
   }
 }
 
@@ -196,6 +235,22 @@ span {
 
 .home-content p {
   font-size: 1.6rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-icons a {
+  font-size: 2rem;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: var(--primary-color);
 }
 
 .social-icons a {
@@ -288,7 +343,7 @@ span {
     content: "Web Developer";
   }
   21%, 40% {
-    content: "Full Stack Developer";
+    content: "React Developer";
   }
   41%, 60% {
     content: "Web Designer";
@@ -319,6 +374,37 @@ span {
 
   .home-content h1 {
     font-size: 5rem;
+  }
+}
+
+.rounded-img {
+  border-radius: 50%;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.home-img {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .home {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .home-img {
+    max-width: 200px;
+  }
+
+  .home-content h1 {
+    font-size: 4rem;
+  }
+
+  .home-content h3 {
+    font-size: 2.5rem;
   }
 }
 
