@@ -18,8 +18,10 @@ export const translations = {
     hero: {
       greeting: "Hi, I'm",
       downloadCv: 'Download CV',
-      hireMe: 'Hire Me',
-      tagline: 'I craft fast, accessible, beautifully engineered web experiences.',
+      hireMe: 'Touch With Me',
+      exploreProduct: 'Explore Zazy2Door',
+      tagline: 'Forging the Future — high-performance software and marketplace platforms built for scale.',
+      subtagline: 'Engineered systems, not templates. From AI pipelines to multi-vendor marketplaces.',
     },
     stats: {
       companies: 'Companies led as CTO',
@@ -34,14 +36,44 @@ export const translations = {
     },
     projects: {
       titlePre: 'Featured',
-      titleAccent: 'Projects',
-      lead: "A few things I've designed, built and shipped.",
-      visit: 'Visit project',
+      titleAccent: 'Portfolio',
+      lead: "Production platforms I've engineered — marketplaces, POS, AI, and enterprise systems.",
+      visit: 'View Project',
+    },
+    featured: {
+      titlePre: 'Featured',
+      titleAccent: 'Product',
+    },
+    capabilities: {
+      titlePre: 'System',
+      titleAccent: 'Engineering',
+      lead: 'Architecting intelligent, scalable systems — the engineering mindset behind every ship.',
+    },
+    servicesPreview: {
+      titlePre: 'Our',
+      titleAccent: 'Services',
+      lead: 'Engineered systems, not templates — from AI & ML to cloud infrastructure and commerce.',
+      viewAll: 'View all services',
+    },
+    cta: {
+      title: 'Ready to build?',
+      lead: "Let's ship something real.",
+      contact: 'Contact Us',
+      email: 'Email Me',
+      call: 'Call Me',
+    },
+    touch: {
+      call: 'Call me',
+      callShort: 'Call',
+      email: 'Send email',
+      emailShort: 'Email',
+      contact: 'Get in touch',
+      contactShort: 'Contact',
     },
     services: {
-      titlePre: 'My',
+      titlePre: 'Our',
       titleAccent: 'Services',
-      lead: 'From first sketch to production deploy — everything you need to ship something great.',
+      lead: 'Engineered systems, not templates — 15 capabilities from AI & ML to POS and cloud.',
     },
     experience: {
       titlePre: 'My',
@@ -61,6 +93,7 @@ export const translations = {
     },
     footer: {
       rights: 'All rights reserved.',
+      powered: 'Engineered by',
     },
   },
   my: {
@@ -74,8 +107,10 @@ export const translations = {
     hero: {
       greeting: 'မင်္ဂလာပါ၊ ကျွန်တော်က',
       downloadCv: 'CV ဒေါင်းလုဒ်လုပ်ရန်',
-      hireMe: 'အလုပ်အပ်ရန်',
-      tagline: 'မြန်ဆန်ပြီး လက်ရာမြောက်သော ဝဘ်အတွေ့အကြုံများကို တည်ဆောက်ပေးပါသည်။',
+      hireMe: 'ဆက်သွယ်ရန်',
+      exploreProduct: 'Zazy2Door ကြည့်ရန်',
+      tagline: 'အနာဂတ်ကို တည်ဆောက်ခြင်း — စCALE အတွက် marketplace နှင့် software ပလက်ဖောင်းများ။',
+      subtagline: 'Template မဟုတ် — engineer လုပ်ထားသော system များ။ AI မှ marketplace အထိ။',
     },
     stats: {
       companies: 'CTO အဖြစ် ဦးဆောင်သော ကုမ္ပဏီများ',
@@ -90,9 +125,39 @@ export const translations = {
     },
     projects: {
       titlePre: 'ရွေးချယ်ထားသော',
-      titleAccent: 'ပရောဂျက်များ',
-      lead: 'ဒီဇိုင်းဆွဲ တည်ဆောက်ပြီး ထုတ်လုပ်ခဲ့သော လက်ရာအချို့။',
+      titleAccent: 'Portfolio',
+      lead: 'Marketplace, POS, AI နှင့် enterprise system များ။',
       visit: 'ပရောဂျက်ကြည့်ရန်',
+    },
+    featured: {
+      titlePre: 'Featured',
+      titleAccent: 'Product',
+    },
+    capabilities: {
+      titlePre: 'System',
+      titleAccent: 'Engineering',
+      lead: 'Intelligent, scalable system များ — ship တိုင်း နောက်ကွယ်က engineering။',
+    },
+    servicesPreview: {
+      titlePre: 'Our',
+      titleAccent: 'Services',
+      lead: 'AI & ML မှ cloud, commerce အထိ — engineer လုပ်ထားသော service များ။',
+      viewAll: 'ဝန်ဆောင်မှုအားလုံးကြည့်ရန်',
+    },
+    cta: {
+      title: 'တည်ဆောက်ဖို့ အဆင်သင့်ပြီလား?',
+      lead: 'တကယ့် product တစ်ခု ship ကြရအောင်။',
+      contact: 'ဆက်သွယ်ရန်',
+      email: 'Email ပို့ရန်',
+      call: 'ဖုန်းခေါ်ရန်',
+    },
+    touch: {
+      call: 'ဖုန်းခေါ်ရန်',
+      callShort: 'Call',
+      email: 'Email',
+      emailShort: 'Email',
+      contact: 'ဆက်သွယ်ရန်',
+      contactShort: 'Contact',
     },
     services: {
       titlePre: 'ကျွန်တော့်',
@@ -117,6 +182,7 @@ export const translations = {
     },
     footer: {
       rights: 'မူပိုင်ခွင့်များ ရယူပြီး။',
+      powered: 'Engineered by',
     },
   },
   ru: {
@@ -130,8 +196,10 @@ export const translations = {
     hero: {
       greeting: 'Привет, я',
       downloadCv: 'Скачать резюме',
-      hireMe: 'Нанять меня',
-      tagline: 'Создаю быстрые, доступные и красиво спроектированные веб-приложения.',
+      hireMe: 'Связаться',
+      exploreProduct: 'Zazy2Door',
+      tagline: 'Куём будущее — высокопроизводительное ПО и маркетплейсы для масштаба.',
+      subtagline: 'Инженерные системы, не шаблоны. От AI до мультивендорных платформ.',
     },
     stats: {
       companies: 'Компании под моим руководством (CTO)',
@@ -145,10 +213,40 @@ export const translations = {
       lead: 'Инструменты, которыми я пользуюсь каждый день — от фронтенда до бэкенда.',
     },
     projects: {
-      titlePre: 'Избранные',
-      titleAccent: 'Проекты',
-      lead: 'Несколько работ, которые я спроектировал, создал и запустил.',
-      visit: 'Открыть проект',
+      titlePre: 'Избранное',
+      titleAccent: 'Портфолио',
+      lead: 'Продакшен-платформы: маркетплейсы, POS, AI и enterprise-системы.',
+      visit: 'Смотреть проект',
+    },
+    featured: {
+      titlePre: 'Featured',
+      titleAccent: 'Product',
+    },
+    capabilities: {
+      titlePre: 'System',
+      titleAccent: 'Engineering',
+      lead: 'Интеллектуальные масштабируемые системы — инженерный подход за каждым релизом.',
+    },
+    servicesPreview: {
+      titlePre: 'Our',
+      titleAccent: 'Services',
+      lead: 'Инженерные системы — от AI & ML до облака и коммерции.',
+      viewAll: 'Все услуги',
+    },
+    cta: {
+      title: 'Готовы строить?',
+      lead: 'Давайте запустим что-то реальное.',
+      contact: 'Связаться',
+      email: 'Email',
+      call: 'Позвонить',
+    },
+    touch: {
+      call: 'Позвонить',
+      callShort: 'Call',
+      email: 'Email',
+      emailShort: 'Email',
+      contact: 'Связаться',
+      contactShort: 'Contact',
     },
     services: {
       titlePre: 'Мои',
@@ -173,6 +271,7 @@ export const translations = {
     },
     footer: {
       rights: 'Все права защищены.',
+      powered: 'Engineered by',
     },
   },
 };

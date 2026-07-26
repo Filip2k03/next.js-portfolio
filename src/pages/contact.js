@@ -10,6 +10,7 @@ const ICONS = {
   linkedin: FaLinkedin,
   github: FaGithub,
   email: FaEnvelope,
+  phone: FaPhone,
 };
 
 const Contact = () => {

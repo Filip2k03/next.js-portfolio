@@ -2,17 +2,21 @@
 export const identity = {
   name: 'Thu Ya Kyaw',
   alias: 'TechyyFilip',
-  tagline: 'I craft fast, accessible, beautifully engineered web experiences.',
+  tagline: 'Forging the Future — high-performance software and marketplace platforms built for scale.',
+  subtagline:
+    'Engineered systems, not templates. I architect, build, and ship production-grade platforms — from AI pipelines to multi-vendor marketplaces.',
   roles: [
     'Chief Technology Officer',
-    'Full Stack Developer',
-    'UI/UX Designer',
     'System Engineer',
+    'Full Stack Developer',
+    'AI & ML Engineer',
+    'UI/UX Designer',
     'Tech Artist',
   ],
   positions: [
     { role: 'CTO', company: 'Reiwasakura' },
     { role: 'CTO', company: 'New Earth Company Limited' },
+    { role: 'Lead Engineer', company: 'PayVia Tech Solutions' },
   ],
   location: 'Global / Remote',
   email: 'stephanfilip7@gmail.com',
@@ -20,15 +24,17 @@ export const identity = {
   siteUrl: 'https://techyyfilip.vercel.app',
   avatar: '/images/codecraft.jpg',
   cvPath: '/download/cv.pdf',
+  company: 'PayVia Tech Solutions',
+  companyUrl: 'https://paicafes.com',
 };
 
 export const socials = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/thu-ya-kyaw-5a606732b', icon: 'linkedin' },
   { label: 'GitHub', href: 'https://github.com/Filip2k03', icon: 'github' },
   { label: 'Email', href: 'mailto:stephanfilip7@gmail.com', icon: 'email' },
+  { label: 'Phone', href: 'tel:+959954480806', icon: 'phone' },
 ];
 
-// Online presence — rendered on the contact page and available to the terminal.
 export const profiles = [
   { label: 'GitHub', href: 'https://github.com/Filip2k03', desc: 'Code & open source' },
   {
@@ -37,85 +43,243 @@ export const profiles = [
     desc: 'Professional profile',
   },
   { label: 'Reiwasakura', href: 'https://reiwasakura.tech', desc: 'My company — CTO' },
-  { label: 'PaiCafes', href: 'https://paicafes.com', desc: 'Production cafe platform' },
+  { label: 'PaiCafes', href: 'https://paicafes.com', desc: 'Smart digital restaurant platform' },
   {
     label: 'Digital Marketplace MM',
     href: 'https://digitalmarketplacemm.com',
-    desc: 'Marketplace I engineered',
+    desc: 'Multi-vendor marketplace I engineered',
+  },
+  { label: 'PayVia Tech', href: 'https://paicafes.com', desc: 'PayVia POS & commerce systems' },
+];
+
+export const capabilities = [
+  {
+    title: 'System Architecture',
+    description:
+      'Distributed systems, microservices, and event-driven pipelines designed for fault tolerance and scale.',
+    icon: 'architecture',
+  },
+  {
+    title: 'AI & Machine Learning',
+    description:
+      'Intelligent automation — predictive models, NLP integrations, and ML pipelines that optimize real operations.',
+    icon: 'ai',
+  },
+  {
+    title: 'Cloud Infrastructure',
+    description:
+      'Cloud-native deployment on AWS, Vercel, and Docker — CI/CD, monitoring, and zero-downtime releases.',
+    icon: 'cloud',
+  },
+  {
+    title: 'Marketplace Engineering',
+    description:
+      'Multi-vendor commerce platforms with seller dashboards, order flows, payments, and analytics.',
+    icon: 'marketplace',
+  },
+  {
+    title: 'Real-Time Systems',
+    description:
+      'WebSockets, live dashboards, kitchen displays, and POS sync — data that moves at the speed of business.',
+    icon: 'realtime',
+  },
+  {
+    title: 'Security & Reliability',
+    description:
+      'Secure APIs, auth flows, encrypted data paths, and production-grade error handling.',
+    icon: 'security',
   },
 ];
 
+export const featuredProduct = {
+  eyebrow: 'FEATURED PRODUCT',
+  title: 'Zazy2Door Marketplace',
+  description:
+    'A full-scale multi-vendor marketplace with seller dashboards, order flows, and analytics built for real commerce.',
+  href: 'https://digitalmarketplacemm.com',
+  cta: 'Request Demo',
+  exploreCta: 'Explore Zazy2Door',
+  features: [
+    'Vendor onboarding & dashboards',
+    'Cart, checkout & order lifecycle',
+    'Admin & seller analytics',
+    'Mobile-first performance UI',
+  ],
+  image: '/images/digitalmarketplacemm.svg',
+};
+
 export const skills = [
+  { name: 'System Engineering', level: 92, icon: 'docker' },
+  { name: 'AI & Machine Learning', level: 85, icon: 'python' },
   { name: 'HTML5', level: 95, icon: 'html' },
   { name: 'CSS3', level: 90, icon: 'css' },
-  { name: 'JavaScript', level: 85, icon: 'js' },
-  { name: 'TypeScript', level: 80, icon: 'typescript' },
-  { name: 'React', level: 85, icon: 'react' },
-  { name: 'Next.js', level: 82, icon: 'nextjs' },
-  { name: 'Node.js', level: 78, icon: 'node' },
-  { name: 'Tailwind CSS', level: 85, icon: 'tailwind' },
-  { name: 'Bootstrap', level: 90, icon: 'bootstrap' },
-  { name: 'Python + Django', level: 75, icon: 'python' },
-  { name: 'PHP + Laravel', level: 70, icon: 'php' },
-  { name: 'MySQL', level: 80, icon: 'mysql' },
-  { name: 'WordPress', level: 85, icon: 'wordpress' },
-  { name: 'Docker', level: 70, icon: 'docker' },
-  { name: 'Git & GitHub', level: 90, icon: 'git' },
-  { name: 'Figma / UI Design', level: 85, icon: 'figma' },
+  { name: 'JavaScript', level: 88, icon: 'js' },
+  { name: 'TypeScript', level: 82, icon: 'typescript' },
+  { name: 'React', level: 88, icon: 'react' },
+  { name: 'Next.js', level: 85, icon: 'nextjs' },
+  { name: 'Node.js', level: 80, icon: 'node' },
+  { name: 'Python + Django', level: 78, icon: 'python' },
+  { name: 'PHP + Laravel', level: 75, icon: 'php' },
+  { name: 'Tailwind CSS', level: 88, icon: 'tailwind' },
+  { name: 'MySQL', level: 82, icon: 'mysql' },
+  { name: 'Docker', level: 78, icon: 'docker' },
+  { name: 'Git & GitHub', level: 92, icon: 'git' },
+  { name: 'Figma / UI Design', level: 88, icon: 'figma' },
 ];
 
 export const services = [
   {
-    title: 'Front-End Development',
-    description:
-      'Visually appealing, user-friendly interfaces built with modern frameworks and pixel-level care.',
-    image: '/images/front.avif',
-  },
-  {
-    title: 'Full Stack Development',
-    description:
-      'End-to-end web applications — robust back-ends, polished front-ends, scalable architecture.',
+    title: 'AI & Machine Learning',
+    description: 'Intelligent solutions to automate and optimize processes.',
+    icon: 'ai',
     image: '/images/full.png',
   },
   {
-    title: 'UI/UX Design',
-    description:
-      'Intuitive, engaging interfaces and experiences that keep users coming back.',
-    image: '/images/uiux.webp',
+    title: 'API Development',
+    description: 'Secure and reliable APIs to connect your services.',
+    icon: 'api',
+    image: '/images/full.png',
   },
   {
-    title: 'WordPress Development',
-    description:
-      'Custom WordPress sites tailored to your brand with seamless, responsive design.',
-    image: '/images/wordpress.png',
-  },
-  {
-    title: 'CMS Systems',
-    description:
-      'Content management systems that make organizing and publishing effortless.',
-    image: '/images/cms.jpeg',
-  },
-  {
-    title: 'Online Programming Courses',
-    description:
-      'Hands-on tutorials and courses to level up your coding skills, from basics to production.',
-    image: '/images/online.jpeg',
-  },
-  {
-    title: 'Web Hosting & Domains',
-    description:
-      'Reliable hosting, domain purchase and management to establish your online presence.',
+    title: 'Cloud Infrastructure',
+    description: 'Scalable and secure cloud deployment and management.',
+    icon: 'cloud',
     image: '/images/host.png',
   },
   {
-    title: 'POS Systems',
-    description:
-      'Efficient point-of-sale systems that streamline sales and improve customer experience.',
+    title: 'Content Management Systems (CMS)',
+    description: 'Scalable and user-friendly CMS platforms.',
+    icon: 'cms',
+    image: '/images/cms.jpeg',
+  },
+  {
+    title: 'E-commerce Platforms',
+    description: 'Robust online stores with secure payment gateways.',
+    icon: 'ecommerce',
+    image: '/images/digitalmarketplacemm.svg',
+  },
+  {
+    title: 'Hospital Management Systems (HMS)',
+    description: 'Integrated solutions for healthcare providers.',
+    icon: 'hms',
+    image: '/images/full.png',
+  },
+  {
+    title: 'Mobile App Development',
+    description: 'Native and hybrid apps for iOS and Android.',
+    icon: 'mobile',
+    image: '/images/front.avif',
+  },
+  {
+    title: 'Point of Sale (POS) Systems',
+    description: 'Custom POS solutions for retail and hospitality.',
+    icon: 'pos',
     image: '/images/pos.svg',
+  },
+  {
+    title: 'School Management Systems (SMS)',
+    description: 'Comprehensive software for educational institutions.',
+    icon: 'sms',
+    image: '/images/online.jpeg',
+  },
+  {
+    title: 'Test Server & Demo Environments',
+    description: 'Staging, demo, and QA environments for rapid validation.',
+    icon: 'demo',
+    image: '/images/host.png',
+  },
+  {
+    title: 'UI/UX Design',
+    description: 'Intuitive and beautiful user interface design.',
+    icon: 'uiux',
+    image: '/images/uiux.webp',
+  },
+  {
+    title: 'Full Stack Development',
+    description: 'End-to-end web applications — robust back-ends, polished front-ends, scalable architecture.',
+    icon: 'fullstack',
+    image: '/images/full.png',
+  },
+  {
+    title: 'Front-End Development',
+    description: 'Visually appealing, user-friendly interfaces built with modern frameworks.',
+    icon: 'frontend',
+    image: '/images/front.avif',
+  },
+  {
+    title: 'Web Hosting & Domains',
+    description: 'Reliable hosting, domain purchase and management to establish your online presence.',
+    icon: 'hosting',
+    image: '/images/host.png',
+  },
+  {
+    title: 'Online Programming Courses',
+    description: 'Hands-on tutorials and courses to level up your coding skills, from basics to production.',
+    icon: 'courses',
+    image: '/images/online.jpeg',
   },
 ];
 
 export const projects = [
+  {
+    title: 'Zazy2Door Marketplace',
+    description:
+      'A full-scale multi-vendor marketplace with seller dashboards, order flows, and analytics built for real commerce.',
+    href: 'https://digitalmarketplacemm.com',
+    tags: ['Marketplace', 'Multi-vendor', 'Production'],
+    image: '/images/digitalmarketplacemm.svg',
+    featured: true,
+  },
+  {
+    title: 'Pai Cafe',
+    description:
+      'Paicafe.online is a smart digital restaurant solution powered by PayVia POS System. Customers scan a QR code to browse the menu, place orders, and pay online — with real-time kitchen display, table panel updates, and smart inventory management.',
+    href: 'https://paicafes.com',
+    tags: ['POS', 'Restaurant', 'PayVia'],
+    image: '/images/paicafes.svg',
+  },
+  {
+    title: 'Retail POS Pro',
+    description: 'A cloud-based POS system for a multi-location retail chain.',
+    href: 'https://paicafes.com',
+    tags: ['POS', 'Cloud', 'Retail'],
+    image: '/images/pos.svg',
+  },
+  {
+    title: 'Edu-Manage Suite',
+    description: 'A comprehensive SMS for a network of international schools.',
+    href: 'https://reiwasakura.tech',
+    tags: ['SMS', 'Education', 'Enterprise'],
+    image: '/images/online.jpeg',
+  },
+  {
+    title: 'Health-Plus HMS',
+    description: 'A hospital management system improving patient care.',
+    href: 'https://reiwasakura.tech',
+    tags: ['HMS', 'Healthcare', 'Enterprise'],
+    image: '/images/full.png',
+  },
+  {
+    title: 'Dynamic CMS Builder',
+    description: 'A headless CMS for a major online publisher.',
+    href: 'https://reiwasakura.tech',
+    tags: ['CMS', 'Headless', 'Publishing'],
+    image: '/images/cms.jpeg',
+  },
+  {
+    title: 'Shopify Alternative',
+    description: 'A custom e-commerce platform for a niche market.',
+    href: 'https://digitalmarketplacemm.com',
+    tags: ['E-commerce', 'Custom', 'Payments'],
+    image: '/images/digitalmarketplacemm.svg',
+  },
+  {
+    title: 'AI-Powered Logistics',
+    description: 'An ML model that optimizes delivery routes in real-time.',
+    href: 'https://github.com/Filip2k03',
+    tags: ['AI/ML', 'Logistics', 'Optimization'],
+    image: '/images/full.png',
+  },
   {
     title: 'Reiwasakura',
     description:
@@ -126,36 +290,12 @@ export const projects = [
     fit: 'contain',
   },
   {
-    title: 'PaiCafes',
-    description:
-      'A production cafe platform — discovery, ordering and management for cafes, live at paicafes.com.',
-    href: 'https://paicafes.com',
-    tags: ['Full Stack', 'Production', 'Platform'],
-    image: '/images/paicafes.svg',
-  },
-  {
-    title: 'Digital Marketplace MM',
-    description:
-      'A real-world digital marketplace for Myanmar — products, sellers and secure transactions at digitalmarketplacemm.com.',
-    href: 'https://digitalmarketplacemm.com',
-    tags: ['E-commerce', 'Marketplace', 'Production'],
-    image: '/images/digitalmarketplacemm.svg',
-  },
-  {
     title: 'Digizens Alliance',
     description:
       'Designed and developed the full UI/UX for the Digizens Alliance website, ensuring optimal user experience and seamless functionality.',
     href: 'https://digizensalliance.org/',
     tags: ['UI/UX', 'Web Design', 'React'],
     image: '/images/uiux.webp',
-  },
-  {
-    title: 'ChatApp',
-    description:
-      'A private chat application allowing users to communicate securely in real time.',
-    href: 'https://chatapp.talkprivate.au.tempcloudsite.com/',
-    tags: ['Full Stack', 'Real-time', 'Security'],
-    image: '/images/full.png',
   },
   {
     title: 'Portfolio v2',
@@ -169,36 +309,36 @@ export const projects = [
 
 export const experience = [
   {
-    title: 'Leadership',
+    title: 'Leadership & Engineering',
     items: [
       'Chief Technology Officer at Reiwasakura — leading engineering strategy, architecture and delivery.',
       'Chief Technology Officer at New Earth Company Limited — driving product engineering and technical direction.',
+      'Lead Engineer at PayVia Tech Solutions — building POS, marketplace, and restaurant platforms at scale.',
       'Shipped real-world production platforms including paicafes.com and digitalmarketplacemm.com.',
+    ],
+  },
+  {
+    title: 'AI, ML & Intelligent Systems',
+    items: [
+      'Designed ML pipelines for logistics optimization and predictive analytics.',
+      'Integrated AI-powered automation into POS and marketplace workflows.',
+      'Built intelligent inventory and order-routing systems for restaurant platforms.',
+    ],
+  },
+  {
+    title: 'System Engineering',
+    items: [
+      'Architected distributed systems with secure APIs, real-time sync, and cloud-native deployment.',
+      'Engineered multi-vendor marketplace infrastructure — vendor onboarding, checkout, and analytics.',
+      'Developed secure, scalable back-end systems with PHP, Python, and Node.js.',
     ],
   },
   {
     title: 'Key Achievements',
     items: [
-      'Designed and developed UI/UX for two websites, including Digizens Alliance (digizensalliance.org), ensuring optimal user experience and seamless functionality.',
-      'Collaborated on a second website project, delivering a comprehensive interface end-to-end.',
+      'Designed and developed UI/UX for Digizens Alliance (digizensalliance.org) and additional client platforms.',
       'Built dynamic, interactive components with React, styled with Tailwind CSS and Bootstrap.',
-      'Developed secure, scalable back-end systems with PHP and MySQL, including user authentication and data management.',
-    ],
-  },
-  {
-    title: 'React Experience',
-    items: [
-      'Developed multiple single-page applications (SPAs) using React.js.',
-      'Implemented state management with Redux and the Context API.',
-      'Created reusable components and hooks to streamline development.',
-      'Integrated RESTful APIs to fetch and display data dynamically.',
-    ],
-  },
-  {
-    title: 'Professional Experience',
-    items: [
-      'Completed two seaman contracts as a cadet, building teamwork, discipline and execution under pressure.',
-      'Deep understanding of logistics, operational processes and problem-solving in fast-paced conditions.',
+      'Created reusable component libraries and hooks to streamline development across projects.',
     ],
   },
   {

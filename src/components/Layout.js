@@ -4,6 +4,7 @@ import BackToTop from './BackToTop';
 import ScrollProgress from './ScrollProgress';
 import Terminal from './Terminal';
 import FoxMascot from './FoxMascot';
+import TouchCTA from './TouchCTA';
 import SEO from './SEO';
 
 // Shared page shell: skip link, progress bar, header, main landmark,
@@ -19,6 +20,7 @@ const Layout = ({ children, title, description }) => {
       <Header />
       <main id="main-content">{children}</main>
       <Footer />
+      <TouchCTA />
       <Terminal />
       <FoxMascot />
       <BackToTop />

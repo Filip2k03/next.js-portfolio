@@ -1,0 +1,80 @@
+.section {
+  background: linear-gradient(180deg, transparent, var(--bg-elev-1) 40%, transparent);
+}
+
+.card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 0;
+  overflow: hidden;
+}
+
+.visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3.2rem;
+  background: var(--bg-elev-2);
+  border-right: 1px solid var(--border);
+}
+
+.image {
+  width: 100%;
+  max-width: 28rem;
+  height: auto;
+  object-fit: contain;
+}
+
+.body {
+  padding: clamp(2.4rem, 4vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.body h3 {
+  font-size: clamp(2.2rem, 3vw, 2.8rem);
+}
+
+.body p {
+  color: var(--text-muted);
+  font-size: 1.6rem;
+  max-width: 56ch;
+}
+
+.features {
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+}
+
+.features li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+  color: var(--text);
+}
+
+.features li svg {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  .card {
+    grid-template-columns: 1fr;
+  }
+
+  .visual {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}

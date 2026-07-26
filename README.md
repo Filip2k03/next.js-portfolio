@@ -1,25 +1,23 @@
-# TechyyFilip — Portfolio v2
+# TechyyFilip — Portfolio v2.0
 
-Personal portfolio of **Thu Ya Kyaw** (a.k.a. **TechyyFilip**) — Full Stack Developer, UI/UX Designer, Tech Artist.
+Personal portfolio of **Thu Ya Kyaw** (a.k.a. **TechyyFilip**) — CTO, System Engineer, Full Stack Developer, AI & ML Engineer, UI/UX Designer.
 
 Live: [techyyfilip.vercel.app](https://techyyfilip.vercel.app)
 
-## v2 Highlights
+## v2.0 Highlights
 
-- **Retro-matte design system** — warm near-black/brown dark theme, matte emerald accent, terminal-flavored mono labels, subtle CRT scanline overlay.
-- **Theme + accent customizer** — dark/light toggle plus a user-selectable accent (emerald / violet / bronze), persisted in localStorage.
-- **i18n** — English (default), Myanmar (မြန်မာ) and Russian (Русский) interface, switchable from the header and persisted in localStorage.
-- **Typewriter hero** with blinking block cursor (static under `prefers-reduced-motion`).
-- **Interactive terminal** — visitors can play with `help`, `whoami`, `skills`, `projects`, `accent violet`, `theme light` and more; all output reads from the data layer.
-- **Featured projects showcase** (Reiwasakura, PaiCafes, Digital Marketplace MM, …) with AOS-style directional scroll reveals (up/left/right/zoom).
-- **Animated stats counters**, scroll progress bar, 3D tilt hero portrait, floating tech chips, back-to-top button, custom 404.
-- **SEO** — per-page meta, Open Graph, Twitter cards, JSON-LD Person schema, canonical URLs, `sitemap.xml`, `robots.txt`.
-- **Accessibility** — skip link, landmarks, `aria-label`s on icon buttons, visible focus rings, reduced-motion support.
-- **Content as data** — all copy lives in `src/data/profile.js`; components never hardcode content.
+- **Forging the Future hero** — system engineer + AI/ML positioning, PayVia Tech Solutions affiliation, Zazy2Door featured product CTA.
+- **15 engineered services** — AI & ML, API, cloud, CMS, e-commerce, HMS, mobile, POS, SMS, UI/UX, and more.
+- **Capabilities section** — system architecture, AI/ML, cloud, marketplace, real-time, and security engineering.
+- **Expanded portfolio** — Zazy2Door, Pai Cafe, Retail POS Pro, Edu-Manage, Health-Plus HMS, AI Logistics, and more.
+- **Touch CTAs** — floating call/email/contact bar + hero quick contact + footer contact links.
+- **GSAP + AOS animations** — hero entrance, stagger reveals, magnetic CTAs, scroll animations (respects `prefers-reduced-motion`).
+- **Vercel Analytics** — `@vercel/analytics` for production traffic insights.
+- **Retro-matte design system** — warm near-black/brown dark theme, accent customizer, terminal easter egg, i18n (EN/MM/RU).
 
 ## Stack
 
-Next.js (Pages Router) · React · CSS Modules with design tokens · next-themes · react-icons · next/font (Poppins + JetBrains Mono)
+Next.js (Pages Router) · React · CSS Modules · next-themes · react-icons · GSAP · AOS · @vercel/analytics · next/font (Poppins + JetBrains Mono)
 
 ## Getting Started
 

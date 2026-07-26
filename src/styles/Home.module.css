@@ -84,10 +84,18 @@
 }
 
 .heroTagline {
+  color: var(--text);
+  font-size: clamp(1.6rem, 2.2vw, 2rem);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  max-width: 52ch;
+}
+
+.heroSubtagline {
   color: var(--text-muted);
-  font-size: clamp(1.5rem, 2vw, 1.8rem);
+  font-size: clamp(1.4rem, 1.8vw, 1.7rem);
   margin-bottom: 1.2rem;
-  max-width: 48ch;
+  max-width: 52ch;
 }
 
 .heroPositions {
@@ -100,7 +108,27 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1.6rem;
-  margin-bottom: 3.2rem;
+  margin-bottom: 2rem;
+}
+
+.heroQuickContact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  margin-bottom: 2.4rem;
+}
+
+.quickLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.4rem;
+  color: var(--accent);
+  transition: opacity 0.2s ease;
+}
+
+.quickLink:hover {
+  opacity: 0.85;
 }
 
 .heroSocials {
@@ -269,6 +297,16 @@
   transition: gap 0.2s ease;
 }
 
+.projectFeatured {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent-soft), var(--shadow-soft);
+}
+
+.projectFeatured .projectBody h3::before {
+  content: '★ ';
+  color: var(--accent);
+}
+
 .projectLink:hover {
   gap: 1.2rem;
 }
@@ -280,7 +318,8 @@
   }
 
   .heroButtons,
-  .heroSocials {
+  .heroSocials,
+  .heroQuickContact {
     justify-content: center;
   }
 

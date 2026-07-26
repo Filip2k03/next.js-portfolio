@@ -1,9 +1,11 @@
 import { ThemeProvider } from 'next-themes';
+import { Analytics } from '@vercel/analytics/react';
 import { Poppins, JetBrains_Mono } from 'next/font/google';
 import { LanguageProvider } from '../context/LanguageContext';
+import { useAOS } from '../hooks/useAOS';
+import 'aos/dist/aos.css';
 import '../styles/globals.css';
 
-// next/font: self-hosted, zero layout shift (replaces the old Google Fonts @import)
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800'],
@@ -16,13 +18,18 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-mono',
 });
 
+function AppShell({ Component, pageProps }) {
+  useAOS();
+  return <Component {...pageProps} />;
+}
+
 function MyApp({ Component, pageProps }) {
   return (
-    // attribute must match the [data-theme] selectors in globals.css
     <ThemeProvider attribute="data-theme" defaultTheme="dark">
       <LanguageProvider>
         <div className={`${poppins.variable} ${jetbrainsMono.variable}`}>
-          <Component {...pageProps} />
+          <AppShell Component={Component} pageProps={pageProps} />
+          <Analytics />
           <div className="crt-overlay" aria-hidden="true" />
         </div>
       </LanguageProvider>
