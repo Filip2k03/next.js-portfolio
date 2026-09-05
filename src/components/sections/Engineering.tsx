@@ -4,6 +4,9 @@ import { gameConcepts, scope } from '@/data/systems';
 import { evolution } from '@/data/site';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { LabScene } from '@/components/3d/LabScene';
+import { GameSystemScene } from '@/components/3d/GameSystemScene';
+import { ModelStage } from '@/components/3d/ModelStage';
+import { studioModel } from '@/data/models';
 
 export function SystemsDepth() {
   return (
@@ -60,11 +63,16 @@ export function InteractiveEngineering() {
           <LabScene />
           <div className="experiment-copy">
             <h3>Software with physical presence.</h3>
-            <p>This site demonstrates interactive scenes and architecture exploration with Three.js, React Three Fiber and WebGL.</p>
+            <p>
+              This terrain is displaced in a GLSL vertex shader — the CPU never touches the mesh. The hero architecture,
+              the technology constellation and the labs below are all live Three.js scenes rendered with React Three
+              Fiber.
+            </p>
             <div className="tech-badges">
               <span>Three.js</span>
               <span>React Three Fiber</span>
-              <span>WebGL</span>
+              <span>WebGL 2</span>
+              <span>GLSL</span>
               <span>MediaPipe</span>
             </div>
             <Link className="text-link" href="/#top">
@@ -74,23 +82,38 @@ export function InteractiveEngineering() {
         </article>
         <article className="experiment game">
           <p className="eyebrow">LAB / 002 — GAME ENGINEERING CONCEPTS</p>
-          <div className="state-machine" aria-hidden="true">
-            <span>INPUT</span>
-            <i>→</i>
-            <span>STATE</span>
-            <i>→</i>
-            <span>WORLD</span>
-          </div>
+          <GameSystemScene />
           <div className="experiment-copy">
             <h3>Rules. State. Emergence.</h3>
+            <p>
+              A seeded wave director spawns agents, drives them through spawn → advance → hold → retreat states around a
+              player core, and escalates each wave. The simulation is plain TypeScript; the scene is one instanced mesh.
+            </p>
             <div className="tech-badges">
               {gameConcepts.map((c) => (
                 <span key={c}>{c}</span>
               ))}
             </div>
             <p className="fine-print">
-              Conceptual engineering scope; game-specific implementation evidence is not yet published. Hand tracking and
+              Demonstration built for this portfolio; shipped game titles are not yet published. Hand tracking and
               MediaPipe remain exploration topics.
+            </p>
+          </div>
+        </article>
+        <article className="experiment pipeline">
+          <ModelStage />
+          <div className="experiment-copy">
+            <p className="eyebrow">LAB / 003 — ASSET PIPELINE</p>
+            <h3>From Blender to the browser.</h3>
+            <p>{studioModel.description}</p>
+            <div className="tech-badges">
+              {studioModel.pipeline.map((step) => (
+                <span key={step}>{step}</span>
+              ))}
+            </div>
+            <p className="fine-print">
+              GPU-side work across the lab: GLSL vertex displacement, InstancedMesh crowds, physically based clearcoat
+              materials and soft contact shadows — all gated behind WebGL, viewport and motion preferences.
             </p>
           </div>
         </article>

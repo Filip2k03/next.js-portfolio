@@ -39,15 +39,17 @@ src/
 │   │                        # timeline, about, contact, cv, not-found, sitemap, robots, opengraph-image
 │   └── globals.css          # design tokens + component styles (graphite / champagne system)
 ├── components/
-│   ├── 3d/                  # HeroScene + ArchitectureCanvas, LabScene + TerrainCanvas (dynamic, ssr:false)
+│   ├── 3d/                  # *Scene = gate + DOM fallback, *Canvas = R3F scene (dynamic, ssr:false):
+│   │                        # Hero/Architecture, Lab/Terrain (GLSL), Constellation, GameSystem, ModelStage
 │   ├── sections/            # Hero, CommandCenter, SelectedWork, ArchitectureLab, TechnologyUniverse,
 │   │                        # Engineering (depth / lab / evolution), Timeline, About + ProofOfWork, Contact
 │   ├── ui/                  # Button, SectionHeading, PageHeader, ProjectSlab, Reveal, PrintButton
 │   ├── Navigation.tsx       # floating glass bar, compact on scroll, full-screen mobile dialog
 │   ├── Footer.tsx
 │   └── SmoothScroll.tsx     # Lenis, fine-pointer + motion-allowed only
-├── data/                    # all content, typed: site, projects, technologies, systems, timeline, architecture
-└── hooks/                   # useMediaQuery, useReducedMotion, useWebGLSupport
+├── data/                    # all content, typed: site, projects, technologies, systems, timeline, architecture, models
+├── hooks/                   # useMediaQuery, useReducedMotion, useWebGLSupport, useSceneGate
+└── lib/                     # shaders/terrain (GLSL), waveDirector (pure game-loop simulation)
 deploy/                      # nginx.conf reverse proxy, docker-compose.yml
 Dockerfile                   # multi-stage build of the standalone server
 tests/                       # Playwright specs (run against the production build)
@@ -58,9 +60,14 @@ archive/v2/                  # previous Pages Router site, kept for reference on
 
 - **Content is data.** Copy for projects, technology groups, systems, timeline and identity lives in
   `src/data/*.ts`. Components never hardcode content.
-- **3D is progressive.** Scenes load on demand, only on WebGL-capable, non-phone devices, and never under
-  `prefers-reduced-motion`. Every scene has a DOM equivalent (static metallic composition, node buttons,
-  CSS wire terrain) so the page is complete without WebGL or JavaScript.
+- **3D is progressive.** Every scene goes through `useSceneGate`: WebGL2 present, motion allowed, element
+  on screen, device tier (`full` / `medium` / `low`; phones opt out unless the scene is small). Off-screen
+  scenes stop their frame loop. Every scene has a DOM equivalent (static metallic composition, node buttons,
+  CSS wire terrain, state strip, plinth) so the page is complete without WebGL or JavaScript.
+- **GPU work stays on the GPU.** Terrain displacement is a GLSL vertex shader, crowds and constellations are
+  single `InstancedMesh` draws, materials are PBR (`meshPhysicalMaterial` clearcoat).
+- **Blender → glTF pipeline.** Export `.glb` (Draco/meshopt) into `public/models/` and point
+  `src/data/models.ts` at it; `ModelStage` loads it with `useGLTF` and falls back to a procedural stand-in.
 - **Accuracy over impression.** No fabricated metrics, dates, clients or scale. Undated years in the timeline
   stay "Archive open"; roles without dates are listed without dates.
 - **Accessibility is tested.** One `h1` per page, landmarks, `aria-pressed` on toggles, visible focus rings,

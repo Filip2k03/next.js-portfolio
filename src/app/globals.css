@@ -1554,6 +1554,108 @@ img {
   opacity: calc(0.25 + var(--i) * 0.08);
   transform: rotateX(70deg) scaleX(calc(0.5 + var(--i) * 0.08));
 }
+/* Game lab: DOM state strip is the fallback; the canvas and HUD layer over it once enabled. */
+.game-stage {
+  position: relative;
+  display: grid;
+  min-height: 240px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: radial-gradient(70% 90% at 50% 100%, var(--accent-dim), transparent 70%);
+}
+.game-stage .state-machine {
+  grid-area: 1 / 1;
+  align-self: center;
+}
+.game-stage .canvas-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.game-stage:has(.canvas-layer) .state-machine {
+  opacity: 0;
+}
+.game-hud {
+  position: absolute;
+  left: 0.9rem;
+  top: 0.75rem;
+  z-index: 2;
+  margin: 0;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  color: var(--accent-2);
+  animation: fade-in var(--slow) var(--ease);
+}
+
+/* Asset pipeline lab: plinth fallback beneath the turntable. */
+.experiment.pipeline {
+  grid-template-columns: 1fr;
+}
+@media (min-width: 1024px) {
+  .experiment.pipeline {
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr 1.1fr;
+    align-items: center;
+  }
+}
+.model-stage {
+  position: relative;
+  display: grid;
+  min-height: 280px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background:
+    radial-gradient(50% 40% at 50% 85%, rgba(200, 165, 107, 0.16), transparent 70%),
+    linear-gradient(180deg, transparent, rgba(8, 9, 11, 0.5));
+}
+.model-stage .canvas-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.model-plinth {
+  grid-area: 1 / 1;
+  place-self: center;
+  display: grid;
+  gap: 0.6rem;
+  justify-items: center;
+  color: var(--dim);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+}
+.model-stage:has(.canvas-layer) .model-plinth {
+  opacity: 0;
+}
+
+/* Technology constellation: 3D orbit field sits beneath the DOM nodes. */
+.constellation-layer {
+  display: none;
+}
+@media (min-width: 768px) {
+  .constellation-layer {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .constellation-layer .canvas-layer {
+    position: absolute;
+    inset: 0;
+  }
+  .technology-orbit:has(.canvas-layer) .orbit-ring {
+    opacity: 0.25;
+  }
+  .technology-orbit > .orbit-node,
+  .technology-orbit > .orbit-center {
+    z-index: 1;
+  }
+}
+
 .state-machine {
   display: flex;
   flex-wrap: wrap;

@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { technologies } from '@/data/technologies';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { ConstellationScene } from '@/components/3d/ConstellationScene';
 
 export function TechnologyUniverse({ standalone = false }: { standalone?: boolean }) {
   const [active, setActive] = useState(0);
@@ -18,6 +19,7 @@ export function TechnologyUniverse({ standalone = false }: { standalone?: boolea
       )}
       <div className="technology-layout">
         <div className="technology-orbit" role="group" aria-label="Technology groups">
+          <ConstellationScene active={active} />
           <div className="orbit-ring ring-one" aria-hidden="true" />
           <div className="orbit-ring ring-two" aria-hidden="true" />
           <div className="orbit-ring ring-three" aria-hidden="true" />

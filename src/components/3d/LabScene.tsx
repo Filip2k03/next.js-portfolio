@@ -1,36 +1,17 @@
 'use client';
 import dynamic from 'next/dynamic';
-import { useEffect, useRef, useState, type CSSProperties } from 'react';
-import { useMediaQuery } from '@/hooks/useMediaQuery';
-import { useReducedMotion } from '@/hooks/useReducedMotion';
-import { useWebGLSupport } from '@/hooks/useWebGLSupport';
+import { useRef, type CSSProperties } from 'react';
+import { useSceneGate } from '@/hooks/useSceneGate';
 
 const TerrainCanvas = dynamic(() => import('./TerrainCanvas'), { ssr: false });
 
 /**
- * Wireframe terrain for the engineering lab. Loads only when scrolled into view on WebGL-capable,
- * non-phone devices; the CSS wire lines underneath remain as the always-available fallback.
+ * GLSL-displaced wireframe terrain for the engineering lab. The CSS wire lines underneath are the
+ * always-available fallback; the canvas mounts only through the shared scene gate.
  */
 export function LabScene() {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  const [started, setStarted] = useState(false);
-  const reduced = useReducedMotion();
-  const webgl = useWebGLSupport();
-  const phone = useMediaQuery('(max-width: 767px), (pointer: coarse)');
-  const tablet = useMediaQuery('(max-width: 1279px)');
-
-  useEffect(() => {
-    if (!ref.current) return;
-    const observer = new IntersectionObserver(([entry]) => {
-      setVisible(entry.isIntersecting);
-      if (entry.isIntersecting) setStarted(true);
-    });
-    observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
-  const enabled = webgl === true && !phone && started;
+  const { enabled, animate, tier } = useSceneGate(ref);
 
   return (
     <div className="wire-terrain" ref={ref} aria-hidden="true">
@@ -39,7 +20,7 @@ export function LabScene() {
       ))}
       {enabled && (
         <div className="canvas-layer">
-          <TerrainCanvas animate={visible && !reduced} segments={tablet ? 32 : 56} />
+          <TerrainCanvas animate={animate} segments={tier === 'full' ? 72 : 40} />
         </div>
       )}
     </div>
