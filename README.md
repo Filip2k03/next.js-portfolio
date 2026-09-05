@@ -9,7 +9,7 @@ Live: [thuyakyaw.com](https://thuyakyaw.com)
 ## What v3 is
 
 A complete redesign around systems architecture and product engineering: graphite surfaces, metallic
-project blocks, restrained champagne accents, and a lazily loaded 3D architecture scene. Every claim on
+project blocks, restrained champagne accents, and a lazily loaded 3D product stack in the hero. Every claim on
 the site traces back to the previous portfolio, the repository history, or owner-supplied project names —
 nothing is invented, and projects without published notes are labelled as archive entries.
 
@@ -40,14 +40,14 @@ src/
 │   └── globals.css          # design tokens + component styles (graphite / champagne system)
 ├── components/
 │   ├── 3d/                  # *Scene = gate + DOM fallback, *Canvas = R3F scene (dynamic, ssr:false):
-│   │                        # Hero/Architecture, ProjectWall, Lab/Terrain (GLSL), Constellation, GameSystem, ModelStage
+│   │                        # Hero/ProductStack, ProjectWall, Lab/Terrain (GLSL), Constellation, GameSystem, ModelStage
 │   ├── sections/            # Hero, CommandCenter, SelectedWork, ArchitectureLab, TechnologyUniverse,
 │   │                        # Engineering (depth / lab / evolution), Timeline, About + ProofOfWork, Contact
 │   ├── ui/                  # Button, SectionHeading, PageHeader, ProjectSlab, Reveal, PrintButton
 │   ├── Navigation.tsx       # floating glass bar, compact on scroll, full-screen mobile dialog
 │   ├── Footer.tsx
 │   └── SmoothScroll.tsx     # Lenis, fine-pointer + motion-allowed only
-├── data/                    # all content, typed: site, projects, technologies, systems, timeline, architecture, models
+├── data/                    # all content, typed: site, projects, technologies, systems, timeline, models, metrics (derived)
 ├── hooks/                   # useMediaQuery, useReducedMotion, useWebGLSupport, useSceneGate
 └── lib/                     # shaders/terrain (GLSL), waveDirector (pure game-loop simulation)
 deploy/                      # nginx.conf reverse proxy, docker-compose.yml

@@ -11,6 +11,8 @@ export interface Project {
   slug: string;
   title: string;
   category: string;
+  /** Short brand mark for the hero stack. Projects with a mark are the featured builds. */
+  mark?: string;
   summary: string;
   /** Where the information comes from. Nothing here is invented. */
   provenance: Provenance;
@@ -43,10 +45,11 @@ export const caseStudySections = [
   ['result', 'Result'],
 ] as const satisfies ReadonlyArray<readonly [keyof Project, string]>;
 
-const archiveOnly = (title: string): Project => ({
+const archiveOnly = (title: string, mark?: string): Project => ({
   slug: title.toLowerCase().replaceAll(' ', '-'),
   title,
   category: 'Project archive',
+  mark,
   summary: 'A selected build from the project archive. Detailed engineering notes are not yet published.',
   provenance: 'Owner-supplied project',
   status: 'Notes pending',
@@ -58,6 +61,7 @@ export const projects: Project[] = [
     slug: 'paicafes',
     title: 'PaiCafes',
     category: 'Restaurant platform',
+    mark: 'PaiCafes',
     summary: 'From a table-side QR code to a connected kitchen. Digital ordering, payments and restaurant operations.',
     provenance: 'Existing portfolio',
     status: 'Live',
@@ -73,6 +77,7 @@ export const projects: Project[] = [
     slug: 'digital-marketplace-mm',
     title: 'Digital Marketplace MM',
     category: 'Commerce platform',
+    mark: 'Marketplace MM',
     summary: 'A multi-vendor marketplace connecting seller dashboards, order flows and commerce operations.',
     provenance: 'Existing portfolio',
     status: 'Live',
@@ -86,6 +91,7 @@ export const projects: Project[] = [
     slug: 'reiwa-sakura',
     title: 'Reiwa Sakura',
     category: 'Technology leadership',
+    mark: 'Reiwa Sakura',
     summary: 'Technology strategy, architecture and product delivery for the company platform.',
     provenance: 'Existing portfolio',
     role: 'CTO',
@@ -99,6 +105,7 @@ export const projects: Project[] = [
     slug: 'payvia',
     title: 'PayVia',
     category: 'Business systems',
+    mark: 'PayVia',
     summary: 'POS, marketplace and restaurant engineering at PayVia Tech Solutions.',
     provenance: 'Existing portfolio',
     role: 'Lead Engineer',
@@ -111,6 +118,7 @@ export const projects: Project[] = [
     slug: 'digizens-alliance',
     title: 'Digizens Alliance',
     category: 'Interface engineering',
+    mark: 'Digizens',
     summary: 'UI/UX design and website development with an emphasis on the user experience.',
     provenance: 'Existing portfolio',
     role: 'UI/UX design & development',
@@ -140,10 +148,18 @@ export const projects: Project[] = [
     infrastructure: 'Standalone Next.js build with a Docker image and Nginx reverse-proxy configuration; deployed through Vercel.',
     interface: 'Graphite surfaces, architectural modules and restrained champagne accents.',
   },
-  ...['LaBa Taxi', 'ShweTap', 'TAPMI', 'MB Logistics', 'ChatApp', 'Food Fusion'].map(archiveOnly),
+  archiveOnly('LaBa Taxi', 'LaBa'),
+  archiveOnly('ShweTap', 'ShweTap'),
+  archiveOnly('TAPMI', 'TAPMI'),
+  archiveOnly('MB Logistics', 'MB Logistics'),
+  archiveOnly('ChatApp'),
+  archiveOnly('Food Fusion'),
 ];
 
 /** Projects with documented detail, shown on the home page wall. */
 export const selectedProjects = projects.filter((p) => p.category !== 'Project archive');
+
+/** Builds carrying a brand mark: the blocks stacked in the hero scene, in stage order. */
+export const featuredProjects = projects.filter((p): p is Project & { mark: string } => Boolean(p.mark));
 
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);

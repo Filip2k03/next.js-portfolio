@@ -25,8 +25,9 @@ Run lint → typecheck → build → test:e2e before reporting any change as don
 - **Server-first.** Sections are Server Components; `"use client"` only where state or browser APIs are
   needed (Navigation, SelectedWork toggle, ArchitectureLab, TechnologyUniverse, Reveal, 3D, SmoothScroll).
 - **Content is data.** All copy lives in `src/data/*.ts` (`site`, `projects`, `technologies`, `systems`,
-  `timeline`, `architecture`). Never hardcode content in components. Case-study sections render only when
-  the field exists; archive-only projects show a "notes pending" block instead.
+ `timeline`, `models`, `metrics`). Never hardcode content in components. Case-study sections render only
+ when the field exists; archive-only projects show a "notes pending" block instead. Hero figures in
+ `metrics.ts` are counted from the other data files, never typed in by hand.
 - **Accuracy rule (non-negotiable).** Do not invent companies, clients, dates, metrics, team size or
   scale. Each `Project` carries `provenance`; each dated `TimelineEntry` carries `source`. If data is
   missing, say so in neutral language rather than filling the gap.

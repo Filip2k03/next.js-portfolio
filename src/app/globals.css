@@ -573,20 +573,7 @@ img {
 }
 .hero h1 {
   font-size: clamp(2.3rem, 9.5vw, 5.6rem);
-}
-.hero-role {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  font-family: var(--font-mono), monospace;
-  font-size: var(--step--1);
-  letter-spacing: 0.22em;
-  color: var(--muted);
-}
-.hero-role i {
-  color: var(--accent);
-  margin-right: 0.6rem;
-  font-style: normal;
+  text-transform: uppercase;
 }
 .hero-description {
   color: var(--muted);
@@ -599,6 +586,47 @@ img {
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 0.5rem;
+}
+/* Figures counted from the content data; value above label, hairline grid between cells. */
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin: 1rem 0 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--line);
+  overflow: hidden;
+}
+.hero-stats > div {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.9rem 1rem;
+  background: var(--bg-2);
+}
+.hero-stats dd {
+  margin: 0;
+  font-size: var(--step-3);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+.hero-stats dt {
+  order: 1;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.hero-copy .fine-print {
+  font-size: 0.7rem;
+}
+@media (min-width: 640px) {
+  .hero-stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 .hero-footer {
   display: flex;
@@ -727,8 +755,8 @@ img {
   position: absolute;
   display: grid;
   align-content: space-between;
-  width: 30%;
-  aspect-ratio: 1.05;
+  width: 26%;
+  aspect-ratio: 1;
   padding: 0.7rem;
   border-radius: 8px;
   background: var(--metal);
@@ -737,14 +765,14 @@ img {
     inset 0 1px 0 rgba(255, 255, 255, 0.14),
     inset 0 -14px 24px -14px rgba(0, 0, 0, 0.9),
     18px 26px 40px -18px rgba(0, 0, 0, 0.9);
-  font-family: var(--font-mono), monospace;
-  font-size: clamp(0.6rem, 1.2vw, 0.85rem);
-  letter-spacing: 0.14em;
+  font-size: clamp(0.65rem, 1.25vw, 0.95rem);
+  letter-spacing: -0.01em;
   font-weight: 600;
   color: var(--text);
   transform-style: preserve-3d;
 }
 .metal-block small {
+  font-family: var(--font-mono), monospace;
   font-size: 0.55rem;
   color: var(--dim);
   letter-spacing: 0.12em;
@@ -758,46 +786,68 @@ img {
   height: 1px;
   background: linear-gradient(90deg, var(--accent), transparent);
 }
-.block-0 {
-  left: 14%;
-  top: 30%;
-  transform: rotateX(8deg) rotateY(-18deg) translateZ(20px);
-}
-.block-1 {
-  left: 36%;
-  top: 6%;
-  transform: rotateX(10deg) rotateY(-8deg) translateZ(50px);
-  background: var(--metal-light);
-}
-.block-2 {
-  left: 58%;
-  top: 28%;
-  transform: rotateX(8deg) rotateY(14deg) translateZ(20px);
+/* The pile, in stage order. Widths step down per tier so labels stay clear of the block above. */
+.block-3,
+.block-4 {
+  top: 38%;
+  width: 18%;
+  filter: brightness(0.75);
 }
 .block-3 {
-  left: 10%;
-  top: 60%;
-  transform: rotateX(6deg) rotateY(-22deg);
+  left: 22%;
+  transform: rotateX(6deg) rotateY(-10deg) translateZ(-60px);
 }
 .block-4 {
-  left: 35%;
-  top: 40%;
-  transform: rotateX(6deg) translateZ(90px);
+  left: 60%;
+  transform: rotateX(6deg) rotateY(12deg) translateZ(-60px);
+}
+.block-1 {
+  left: 8%;
+  top: 62%;
+  width: 24%;
+  transform: rotateX(6deg) rotateY(-20deg) translateZ(10px);
+}
+.block-0 {
+  left: 36%;
+  top: 56%;
+  width: 28%;
+  transform: rotateX(6deg) rotateY(-4deg) translateZ(60px);
   background: var(--metal-light);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.2),
     0 0 0 1px var(--accent-dim),
     24px 40px 60px -20px rgba(0, 0, 0, 0.95);
 }
-.block-5 {
-  left: 62%;
-  top: 60%;
-  transform: rotateX(6deg) rotateY(20deg);
+.block-2 {
+  left: 68%;
+  top: 62%;
+  width: 24%;
+  transform: rotateX(6deg) rotateY(20deg) translateZ(10px);
 }
 .block-6 {
-  left: 36%;
-  top: 72%;
-  transform: rotateX(10deg) translateZ(-10px);
+  left: 3%;
+  top: 34%;
+  width: 20%;
+  transform: rotateX(8deg) rotateY(-16deg) translateZ(20px);
+}
+.block-5 {
+  left: 40%;
+  top: 26%;
+  width: 20%;
+  transform: rotateX(8deg) rotateY(-6deg) translateZ(80px);
+  background: var(--metal-light);
+}
+.block-7 {
+  left: 78%;
+  top: 34%;
+  width: 20%;
+  transform: rotateX(8deg) rotateY(18deg) translateZ(20px);
+}
+.block-8 {
+  left: 42%;
+  top: 2%;
+  width: 16%;
+  transform: rotateX(10deg) rotateY(-8deg) translateZ(100px);
   color: var(--accent);
 }
 .canvas-layer {

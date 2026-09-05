@@ -25,12 +25,12 @@ for (const route of routes) {
   });
 }
 
-test('hero exposes every architecture node without WebGL', async ({ page }) => {
+test('hero exposes every featured build without WebGL', async ({ page }) => {
   await page.goto('/');
-  const nodes = page.getByRole('group', { name: 'Explore architecture nodes' }).getByRole('button');
-  await expect(nodes).toHaveCount(7);
-  await nodes.nth(2).click();
-  await expect(page.getByRole('link', { name: /Contracts · Services/ })).toBeVisible();
+  const builds = page.getByRole('group', { name: 'Explore featured builds' }).getByRole('button');
+  await expect(builds).toHaveCount(9);
+  await builds.nth(2).click();
+  await expect(page.getByRole('link', { name: /Reiwa Sakura — Technology leadership/ })).toBeVisible();
 });
 
 test('reduced motion disables the WebGL offer and reveals content', async ({ browser }) => {

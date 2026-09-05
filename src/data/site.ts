@@ -15,7 +15,9 @@ export const site = {
   secondaryIdentity: ['Full-Stack Engineer', 'Systems Engineer', 'Independent Technology Craftsman'],
   message: 'I build the systems behind ambitious digital products.',
   supportingMessage:
-    'Technology strategy, product architecture, production engineering and systems development from idea to deployment.',
+    'I architect and build scalable systems, interactive experiences and digital products, from idea to production.',
+  /** Hero headline: plain lines, then the accent phrase set in the italic serif. */
+  headline: { lines: ['Engineering', 'systems.', 'Building'], accent: 'the future.' },
 } as const;
 
 export const navigation = [
