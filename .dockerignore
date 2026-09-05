@@ -1,0 +1,9 @@
+node_modules
+.next
+.git
+archive
+tests
+test-results
+playwright-report
+*.png
+.DS_Store

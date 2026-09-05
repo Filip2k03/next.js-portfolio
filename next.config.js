@@ -1,11 +1,2 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  images: {
-    // Project artwork ships as local SVGs; sandboxed CSP keeps them inert
-    dangerouslyAllowSVG: true,
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-  },
-};
-
-module.exports = nextConfig;
+module.exports = { output: 'standalone', poweredByHeader: false, reactStrictMode: true, async redirects() { return [{source:'/skills',destination:'/technology',permanent:true},{source:'/services',destination:'/systems',permanent:true},{source:'/experience',destination:'/timeline',permanent:true}]; }, async headers() { return [{source:'/(.*)',headers:[{key:'X-Content-Type-Options',value:'nosniff'},{key:'Referrer-Policy',value:'strict-origin-when-cross-origin'},{key:'X-Frame-Options',value:'DENY'}]}]; } };
