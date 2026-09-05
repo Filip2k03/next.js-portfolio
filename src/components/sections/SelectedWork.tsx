@@ -5,6 +5,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { projects, selectedProjects } from '@/data/projects';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { ProjectSlab } from '@/components/ui/ProjectSlab';
+import { ProjectWallScene } from '@/components/3d/ProjectWallScene';
 
 type Collection = 'Selected' | 'Archive';
 
@@ -40,11 +41,13 @@ export function SelectedWork({ all = false, standalone = false }: SelectedWorkPr
           </div>
         )}
       </div>
-      <div className="project-wall">
-        {shown.map((project, i) => (
-          <ProjectSlab key={project.slug} project={project} index={i} />
-        ))}
-      </div>
+      <ProjectWallScene key={all ? 'all' : collection} projects={shown}>
+        <div className="project-wall">
+          {shown.map((project, i) => (
+            <ProjectSlab key={project.slug} project={project} index={i} />
+          ))}
+        </div>
+      </ProjectWallScene>
       {!all && (
         <Link className="text-link" href="/work">
           Explore the complete archive <ArrowUpRight size={16} />

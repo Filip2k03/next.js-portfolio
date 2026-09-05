@@ -40,7 +40,7 @@ src/
 │   └── globals.css          # design tokens + component styles (graphite / champagne system)
 ├── components/
 │   ├── 3d/                  # *Scene = gate + DOM fallback, *Canvas = R3F scene (dynamic, ssr:false):
-│   │                        # Hero/Architecture, Lab/Terrain (GLSL), Constellation, GameSystem, ModelStage
+│   │                        # Hero/Architecture, ProjectWall, Lab/Terrain (GLSL), Constellation, GameSystem, ModelStage
 │   ├── sections/            # Hero, CommandCenter, SelectedWork, ArchitectureLab, TechnologyUniverse,
 │   │                        # Engineering (depth / lab / evolution), Timeline, About + ProofOfWork, Contact
 │   ├── ui/                  # Button, SectionHeading, PageHeader, ProjectSlab, Reveal, PrintButton
@@ -66,6 +66,9 @@ archive/v2/                  # previous Pages Router site, kept for reference on
   CSS wire terrain, state strip, plinth) so the page is complete without WebGL or JavaScript.
 - **GPU work stays on the GPU.** Terrain displacement is a GLSL vertex shader, crowds and constellations are
   single `InstancedMesh` draws, materials are PBR (`meshPhysicalMaterial` clearcoat).
+- **3D never replaces links.** The project wall's slabs are textured `RoundedBox`es, but every project is also
+  a real `<a>` in the strip beneath the canvas (`aria-current` marks the focused slab) and the DOM grid is one
+  toggle away.
 - **Blender → glTF pipeline.** Export `.glb` (Draco/meshopt) into `public/models/` and point
   `src/data/models.ts` at it; `ModelStage` loads it with `useGLTF` and falls back to a procedural stand-in.
 - **Accuracy over impression.** No fabricated metrics, dates, clients or scale. Undated years in the timeline

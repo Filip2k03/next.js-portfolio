@@ -981,6 +981,126 @@ img {
   perspective: 1600px;
   margin-bottom: 2.5rem;
 }
+
+/* 3D wall (desktop, WebGL): canvas + caption + accessible link strip. The DOM grid is the alternate view. */
+.project-wall-frame {
+  position: relative;
+}
+.wall-view {
+  display: flex;
+  justify-content: flex-end;
+  width: fit-content;
+  margin: 0 0 1rem auto;
+}
+.project-wall-3d {
+  position: relative;
+  height: clamp(480px, 62vh, 680px);
+  margin-bottom: 2.5rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background:
+    radial-gradient(70% 60% at 50% 100%, rgba(200, 165, 107, 0.12), transparent 70%),
+    linear-gradient(180deg, var(--bg-2), var(--bg));
+}
+.project-wall-3d .canvas-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+/* Keeps the caption legible over the slabs without dimming the scene itself. */
+.project-wall-3d::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 45%;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent, rgba(8, 9, 11, 0.85));
+}
+.wall-caption {
+  position: absolute;
+  left: 1.5rem;
+  bottom: 5.25rem;
+  z-index: 2;
+  display: grid;
+  gap: 0.4rem;
+  max-width: 34rem;
+  pointer-events: none;
+  animation: fade-in var(--slow) var(--ease);
+}
+.wall-caption h3 {
+  font-size: var(--step-3);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.wall-caption .text-link {
+  pointer-events: auto;
+  width: fit-content;
+}
+.wall-strip {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--line);
+  background: rgba(8, 9, 11, 0.55);
+  backdrop-filter: blur(12px);
+}
+.wall-strip nav {
+  display: flex;
+  flex: 1;
+  gap: 0.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  mask-image: linear-gradient(90deg, transparent, black 4%, black 96%, transparent);
+}
+.wall-strip nav::-webkit-scrollbar {
+  display: none;
+}
+.wall-strip nav a {
+  flex: none;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 0.9rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+  transition: color var(--fast), border-color var(--fast), background var(--fast);
+}
+.wall-strip nav a:hover,
+.wall-strip nav a[aria-current='true'] {
+  color: var(--accent-2);
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+.wall-strip > button {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  color: var(--text);
+  background: var(--glass);
+  transition: border-color var(--fast), color var(--fast);
+}
+.wall-strip > button:hover {
+  border-color: var(--accent);
+  color: var(--accent-2);
+}
 @media (min-width: 640px) {
   .project-wall {
     grid-template-columns: repeat(2, 1fr);
