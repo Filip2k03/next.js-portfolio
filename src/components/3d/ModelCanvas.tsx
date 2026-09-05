@@ -2,8 +2,9 @@
 import { Canvas, useFrame } from '@react-three/fiber';
 import { ContactShadows, useGLTF } from '@react-three/drei';
 import { Suspense, useMemo, useRef } from 'react';
-import { Vector2, type Group } from 'three';
+import { Box3, Vector2, Vector3, type Group } from 'three';
 import type { StudioModel } from '@/data/models';
+import { SceneBoundary } from './SceneBoundary';
 
 interface ModelProps {
   model: StudioModel;
@@ -11,13 +12,20 @@ interface ModelProps {
   detail: 'full' | 'medium';
 }
 
-/** Blender export path: any .glb in public/models renders through this branch. */
-function GltfModel({ src, scale }: { src: string; scale: number }) {
-  const { scene } = useGLTF(src, true);
-  return <primitive object={scene} scale={scale} />;
+/** Blender export: normalised so every asset fills the same frame regardless of authored size. */
+function GltfModel({ model }: { model: StudioModel }) {
+  const { scene } = useGLTF(model.src);
+  const { scale, offset } = useMemo(() => {
+    const box = new Box3().setFromObject(scene);
+    const size = box.getSize(new Vector3());
+    const scale = model.fit / Math.max(size.x, size.y, size.z);
+    const centre = box.getCenter(new Vector3());
+    return { scale, offset: centre.multiplyScalar(-scale) };
+  }, [scene, model.fit]);
+  return <primitive object={scene} scale={scale} position={offset} />;
 }
 
-/** Lathe-swept graphite column; the stand-in until an authored asset ships. */
+/** Lathe-swept graphite column: shown while an asset streams in or if it fails to load. */
 function Monolith({ detail }: { detail: 'full' | 'medium' }) {
   const profile = useMemo(
     () => [
@@ -34,18 +42,11 @@ function Monolith({ detail }: { detail: 'full' | 'medium' }) {
     ],
     [],
   );
-  const segments = detail === 'full' ? 10 : 8;
   return (
-    <group>
-      <mesh castShadow>
-        <latheGeometry args={[profile, segments]} />
-        <meshPhysicalMaterial color="#2a2e33" metalness={0.75} roughness={0.32} clearcoat={0.8} clearcoatRoughness={0.18} flatShading />
-      </mesh>
-      <mesh position={[0, -0.7, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-        <ringGeometry args={[0.72, 0.745, 64]} />
-        <meshBasicMaterial color="#b69b70" />
-      </mesh>
-    </group>
+    <mesh>
+      <latheGeometry args={[profile, detail === 'full' ? 10 : 8]} />
+      <meshPhysicalMaterial color="#2a2e33" metalness={0.75} roughness={0.32} clearcoat={0.8} clearcoatRoughness={0.18} flatShading />
+    </mesh>
   );
 }
 
@@ -61,11 +62,12 @@ function Turntable({ children, animate }: { children: React.ReactNode; animate: 
 }
 
 export default function ModelCanvas({ model, animate, detail }: ModelProps) {
+  const placeholder = <Monolith detail={detail} />;
   return (
     <Canvas
       frameloop={animate ? 'always' : 'demand'}
       dpr={detail === 'full' ? [1, 1.5] : [1, 1.25]}
-      camera={{ position: detail === 'full' ? [2.6, 1.4, 3.6] : [3.2, 1.8, 4.6], fov: 34 }}
+      camera={{ position: detail === 'full' ? [3.1, 1.7, 4.3] : [3.6, 2.1, 5.2], fov: 34 }}
       onCreated={({ camera }) => camera.lookAt(0, 0, 0)}
       gl={{ antialias: true, alpha: true, powerPreference: 'low-power' }}
     >
@@ -74,11 +76,13 @@ export default function ModelCanvas({ model, animate, detail }: ModelProps) {
       <directionalLight position={[-5, 2, -2]} intensity={3.5} color="#d2b58b" />
       <directionalLight position={[2, -1, -5]} intensity={2} color="#809dad" />
       <Turntable animate={animate}>
-        <Suspense fallback={<Monolith detail={detail} />}>
-          {model.src ? <GltfModel src={model.src} scale={model.scale} /> : <Monolith detail={detail} />}
-        </Suspense>
+        <SceneBoundary fallback={placeholder}>
+          <Suspense fallback={placeholder}>
+            <GltfModel key={model.slug} model={model} />
+          </Suspense>
+        </SceneBoundary>
       </Turntable>
-      {detail === 'full' && <ContactShadows position={[0, -1.12, 0]} opacity={0.6} scale={5} blur={2.4} far={2} color="#000000" />}
+      {detail === 'full' && <ContactShadows position={[0, -1.25, 0]} opacity={0.6} scale={5} blur={2.4} far={2} color="#000000" />}
     </Canvas>
   );
 }

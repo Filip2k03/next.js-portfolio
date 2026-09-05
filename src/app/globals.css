@@ -1708,7 +1708,41 @@ img {
   animation: fade-in var(--slow) var(--ease);
 }
 
-/* Asset pipeline lab: plinth fallback beneath the turntable. */
+/* Asset pipeline lab: plinth fallback beneath the turntable, DOM switcher + description. */
+.model-lab {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+.model-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.model-switcher button {
+  min-height: 44px;
+  padding: 0 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: rgba(8, 9, 11, 0.6);
+  font-family: var(--font-mono), monospace;
+  font-size: var(--step--1);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: border-color var(--fast), color var(--fast), background var(--fast);
+}
+.model-switcher button:hover,
+.model-switcher button[aria-pressed='true'] {
+  border-color: var(--accent);
+  color: var(--accent-2);
+  background: var(--accent-dim);
+}
+.model-description {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--step--1);
+}
 .experiment.pipeline {
   grid-template-columns: 1fr;
 }
@@ -1722,7 +1756,7 @@ img {
 .model-stage {
   position: relative;
   display: grid;
-  min-height: 280px;
+  min-height: 320px;
   border-radius: var(--radius);
   overflow: hidden;
   background:

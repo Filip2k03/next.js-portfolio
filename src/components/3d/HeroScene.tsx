@@ -1,27 +1,17 @@
 'use client';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { Component, useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ArrowUpRight, Box } from 'lucide-react';
 import { architectureNodes } from '@/data/architecture';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { useWebGLSupport } from '@/hooks/useWebGLSupport';
+import { SceneBoundary } from './SceneBoundary';
 
 const ArchitectureCanvas = dynamic(() => import('./ArchitectureCanvas'), { ssr: false });
 
 const monument = ['WEB', 'MOBILE', 'API', 'AI', 'DATA', 'INFRA', 'CORE'];
-
-/** If WebGL fails at runtime the static composition underneath simply stays visible. */
-class SceneBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
-  state = { failed: false };
-  static getDerivedStateFromError() {
-    return { failed: true };
-  }
-  render() {
-    return this.state.failed ? null : this.props.children;
-  }
-}
 
 export function HeroScene() {
   const [selected, setSelected] = useState(-1);

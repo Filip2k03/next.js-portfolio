@@ -53,6 +53,7 @@ src/
 deploy/                      # nginx.conf reverse proxy, docker-compose.yml
 Dockerfile                   # multi-stage build of the standalone server
 tests/                       # Playwright specs (run against the production build)
+tools/blender/               # bpy source for public/models/*.glb
 archive/v2/                  # previous Pages Router site, kept for reference only (not built)
 ```
 
@@ -69,8 +70,10 @@ archive/v2/                  # previous Pages Router site, kept for reference on
 - **3D never replaces links.** The project wall's slabs are textured `RoundedBox`es, but every project is also
   a real `<a>` in the strip beneath the canvas (`aria-current` marks the focused slab) and the DOM grid is one
   toggle away.
-- **Blender → glTF pipeline.** Export `.glb` (Draco/meshopt) into `public/models/` and point
-  `src/data/models.ts` at it; `ModelStage` loads it with `useGLTF` and falls back to a procedural stand-in.
+- **Blender → glTF pipeline.** `tools/blender/build_assets.py` authors the lab assets in Blender (bpy: booleans,
+  bevels, arrays, PBR + emissive materials) and exports `.glb` into `public/models/`. Rebuild with
+  `blender -b --python tools/blender/build_assets.py -- public/models`. `src/data/models.ts` lists them;
+  `ModelStage` normalises size, spins them on a turntable and falls back to a procedural stand-in on failure.
 - **Accuracy over impression.** No fabricated metrics, dates, clients or scale. Undated years in the timeline
   stay "Archive open"; roles without dates are listed without dates.
 - **Accessibility is tested.** One `h1` per page, landmarks, `aria-pressed` on toggles, visible focus rings,

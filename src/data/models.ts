@@ -1,22 +1,44 @@
 /**
- * 3D assets for the lab. Author in Blender, export as glTF Binary (.glb) with Draco or meshopt
- * compression, drop the file in `public/models/`, and reference it here. When `src` is absent the
- * stage renders a procedural stand-in so the pipeline is visible before the first asset ships.
+ * 3D assets for the lab, authored in Blender by `tools/blender/build_assets.py` and exported as
+ * glTF Binary into `public/models/`. Rebuild with:
+ *
+ *   blender -b --python tools/blender/build_assets.py -- public/models
+ *
+ * Any hand-authored .glb can be added the same way; the stage normalises size and centring.
  */
 export interface StudioModel {
+  slug: string;
   name: string;
-  /** Public path to a .glb; omit to use the procedural placeholder. */
-  src?: string;
-  /** Applied after loading so any Blender export lands at a sensible size. */
-  scale: number;
+  /** Public path to the .glb. */
+  src: string;
   description: string;
-  pipeline: string[];
+  /** Longest dimension after normalisation, in scene units. */
+  fit: number;
 }
 
-export const studioModel: StudioModel = {
-  name: 'Graphite monolith',
-  scale: 1,
-  description:
-    'Procedural stand-in rendered with a clearcoat physical material. Blender-authored glTF assets load through the same stage.',
-  pipeline: ['Blender', 'glTF / GLB', 'Draco', 'React Three Fiber', 'PBR materials'],
-};
+export const studioModels: StudioModel[] = [
+  {
+    slug: 'monolith',
+    name: 'Graphite monolith',
+    src: '/models/monolith.glb',
+    fit: 2.3,
+    description:
+      'Ten-sided column with four boolean-cut slots, hardened bevels, a champagne inlay ring and an emissive cap slit.',
+  },
+  {
+    slug: 'compute-module',
+    name: 'Compute module',
+    src: '/models/compute-module.glb',
+    fit: 2.4,
+    description: 'Chassis with a fourteen-fin heat sink, processor package, marking rail and four lit ports.',
+  },
+  {
+    slug: 'soc',
+    name: 'System-on-chip',
+    src: '/models/soc.glb',
+    fit: 2.1,
+    description: 'Chamfered package, exposed die, trace ring with alternating lit lanes and a 10 × 10 pin grid.',
+  },
+];
+
+export const assetPipeline = ['Blender 5 (bpy)', 'glTF / GLB', 'React Three Fiber', 'PBR materials', 'Emissive accents'];

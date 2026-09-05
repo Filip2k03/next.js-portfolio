@@ -6,7 +6,7 @@ import { SectionHeading } from '@/components/ui/SectionHeading';
 import { LabScene } from '@/components/3d/LabScene';
 import { GameSystemScene } from '@/components/3d/GameSystemScene';
 import { ModelStage } from '@/components/3d/ModelStage';
-import { studioModel } from '@/data/models';
+import { assetPipeline } from '@/data/models';
 
 export function SystemsDepth() {
   return (
@@ -105,15 +105,19 @@ export function InteractiveEngineering() {
           <div className="experiment-copy">
             <p className="eyebrow">LAB / 003 — ASSET PIPELINE</p>
             <h3>From Blender to the browser.</h3>
-            <p>{studioModel.description}</p>
+            <p>
+              Three assets authored in Blender from a reproducible <code>bpy</code> script — boolean cuts, hardened
+              bevels, array modifiers, PBR and emissive materials — exported as glTF Binary and streamed into React
+              Three Fiber with size normalisation, a turntable and contact shadows.
+            </p>
             <div className="tech-badges">
-              {studioModel.pipeline.map((step) => (
+              {assetPipeline.map((step) => (
                 <span key={step}>{step}</span>
               ))}
             </div>
             <p className="fine-print">
-              GPU-side work across the lab: GLSL vertex displacement, InstancedMesh crowds, physically based clearcoat
-              materials and soft contact shadows — all gated behind WebGL, viewport and motion preferences.
+              GPU-side work across the lab: GLSL vertex displacement, InstancedMesh crowds, physically based materials
+              and soft contact shadows — all gated behind WebGL, viewport and motion preferences.
             </p>
           </div>
         </article>
